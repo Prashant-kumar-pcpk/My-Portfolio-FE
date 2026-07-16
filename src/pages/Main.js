@@ -35,8 +35,8 @@ export default function Main(){
           />
 
           {/* Heading */}
-          <h1 className="mt-8 text-5xl md:text-6xl font-bold">
-            Hi, I'm <span className="text-white">PRASHANT KUMAR </span>
+          <h1 className="mt-8 text-5xl md:text-5xl font-bold">
+            Hi, I'm <span className="text-white">Prashant Kumar </span>
           </h1>
 
           {/* Subtitle */}
