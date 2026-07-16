@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import bg from '../assets/skill.avif';
 
 const projects = [
   {
@@ -62,7 +63,10 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{
+                 backgroundImage: `url(${bg})`,
+                   }} >
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -142,7 +146,11 @@ export default function Project() {
   const translatePercent = -(activeIndex * (100 / visibleCount));
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen  px-4 py-12 sm:px-6 lg:px-8"
+    style={{
+         backgroundImage: `url(${bg})`,
+            }} >
+              
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
