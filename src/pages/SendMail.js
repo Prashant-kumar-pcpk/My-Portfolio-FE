@@ -35,7 +35,7 @@ export default function SendMail() {
         alert("Mail sent successfully!");
         setForm({ name: "", email: "", subject: "", message: "" });
       } else {
-        alert("Failed to sending Email.");
+        alert(result.message || "Failed to send email.");
       }
     } catch (error) {
       alert("Server not responding.");
@@ -63,59 +63,59 @@ export default function SendMail() {
              className="max-w-6xl mx-auto sm:px-6 border-y-green-800 lg:px-8">
 
 
-          <div className="min-h-screen bg-transparent rounded-lg flex items-center justify-center p-6">
+          <div className="min-h-screen bg-transparent rounded-lg flex items-center justify-center px-6 py-4">
 
-            <div className="w-full max-w-2xl bg-gr shadow-lg rounded-3xl px-12 py-4">
-              <h2 className="text-3xl font-bold text-center mb-6 text-gray-900">
+            <div className="w-full max-w-2xl bg-gr shadow-lg rounded-3xl px-12 py-2">
+              <h2 className="text-3xl font-bold text-center mb-4 text-cyan-500">
                 Send Mail
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2">
 
                 {/* Name */}
                 <div>
-                  <label className="text-gray-700 font-medium">Name</label>
+                  <label className="text-gray-200 font-medium">Name :</label>
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
                     className="w-full p-3 mt-1 border rounded-2xl focus:ring-2 focus:ring-blue-500"
-                    placeholder="Your Name"
+                    placeholder=" Enter Your Name"
                     required
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="text-gray-700 font-medium">Email</label>
+                  <label className="text-gray-200 font-medium">Emails :</label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
                     className="w-full p-3 mt-1 border rounded-2xl focus:ring-2 focus:ring-blue-500"
-                    placeholder="Your Email"
+                    placeholder=" Enter Your Email"
                     required
                   />
                 </div>
 
                 {/* Subject */}
                 <div>
-                  <label className="text-gray-700 font-medium">Subject</label>
+                  <label className="text-gray-200 font-medium">Subject :</label>
                   <input
                     type="text"
                     name="subject"
                     value={form.subject}
                     onChange={handleChange}
                     className="w-full p-3 mt-1 border rounded-2xl focus:ring-2 focus:ring-blue-500"
-                    placeholder="Mail Subject"
+                    placeholder=" Enter Mail Subject"
                   />
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label className="text-gray-700 font-medium">Message</label>
+                  <label className="text-gray-200 font-medium">Message :</label>
                   <textarea
                     name="message"
                     value={form.message}
@@ -129,7 +129,7 @@ export default function SendMail() {
 
                 {/* Submit Button */}
 
-                <div className="flex justify-center p-4">
+                <div className="flex justify-center px-4 py-2">
                   <button
                   type="submit"
                   disabled={loading}
