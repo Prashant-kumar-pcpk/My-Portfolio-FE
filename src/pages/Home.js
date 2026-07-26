@@ -1,85 +1,139 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+import { Download } from "lucide-react";
 
-import React  from 'react';
-import {   useNavigate  } from "react-router-dom";
-import {motion, AnimatePresence} from "framer-motion";
-import homebg from "../assets/mainbg.jpg";
-
-const HomePage = () => {
-
+export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div
-    className=" mx-auto relative h-screen bg-cover bg-center max-w-full"
-          style={{
-            backgroundImage: `url(${homebg})`,
-          }} >
-      
-      <AnimatePresence>
-        <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-             className="max-w-6xl mx-auto  border-y-green-200 lg:px-8">
+    <div className="relative min-h-screen overflow-hidden flex items-center">
 
-        <aside className="relative overflow-hidden text-cyan-300 rounded-lg  mx-2 sm:py-12">
-            <div className="relative z-10 max-w-screen-xl px-2 pb-2 pt-2 sm:py-8 mx-1 sm:px-6 lg:px-2">
-             <div className="max-w-xl sm:mt-1 mt-80 space-y-8 text-center sm:text-right sm:ml-auto">
+       {/* Resume Button */}
+      <div className="absolute top-6 right-6 lg:right-12 z-16">
+        <motion.a
+          href="/Prashant_Kumar_Resume.pdf" // Put your resume inside the public folder
+          download
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          className="group flex items-center gap-3 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 px-4 py-2 text-white font-semibold shadow-2xl hover:shadow-cyan-500/40 transition-all duration-300"
+        >
+          <Download
+            size={20}
+            className="group-hover:-translate-y-1 transition-transform duration-300"
+          />
 
-             <section className="mb-2 ">
-              <h2 className="text-5xl mb-2 text-orange-400 font-bold sm:text-5xl">
-           Prashant Kumar
-          <span className=" hidden text-orange-400 sm:block text-2xl"> (Full-Stack Developer)</span>
-          <span className='mb-4 hidden text-brown-900 sm:block text-2xl'><i>(MERN)</i></span>
-            </h2>
-              <p className="text-lg text-gray-300 justify-start">
-                Hi, I'm <strong className='text-cyan-400 text-xl'> <i>Prashant kumar</i></strong>, and i am passionate <strong> <i>Full-Stack Developer</i></strong>  who loves building modern web applications, solving real-world problems, and crafting beautiful user experiences.
-                 I have experience in creating dynamic, responsive, accessible products that solve real problems and help teams move quickly from concept to launch. I love building intuitive and user-friendly experiences on the web.
-              </p>
-            </section>
+          Resume
+        </motion.a>
+      </div>
+      {/* Background Blur */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-300/20 rounded-full blur-[120px]" />
 
-              <div className="absolute inset-0 w-full shadow-2xl sm:my-20 sm:pt-1 pt-12 pointer-events-none">
-                     <img className="  w-96 h-96 rounded-full shadow-m bg-transparent" src="prashant.jpg"
-                      alt="Prashant" />
-                 </div>  
-           
-            <div className='mt-20'>
-               <button
-             onClick={() => navigate("/Work")}
-              className=" mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-900 text-white rounded-full text-lg"
-            >
-              See my work
-              </button>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+
+
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* Left Side */}
+          <motion.div className="order-2 lg:order-1"
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: .8 }}
+          >
+
+            <h3 className="text-cyan-400 text-xl mb-4">
+              👋 Welcome 
+            </h3>
+
+            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight text-white">
+              Hi, I'm
+              <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Prashant Kumar
+              </span>
+            </h1>
+
+            <div className="text-2xl mt-5 font-semibold text-orange-400">
+
+              <Typewriter
+                words={[
+                  "Full Stack Developer",
+                  "MERN Stack Developer",
+                 
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={90}
+                deleteSpeed={60}
+              />
+
             </div>
-        {/* <------------------------------ Email button --------------------------------> */}
-          <div className=" flex items-start justify-end">
-                     <div className='place-items-end'>
-                      <h4 className='mt-6 text-xl  font-bold '> If you want to contact me </h4>
 
-                  <div className="  flex justify-end">
-                    <button
-                      onClick={() => navigate("/SendMail")}
-                      className=" mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-900 text-white rounded-full text-lg"
-                    >
-                      Send Mail
-                    </button>
-                  </div>
+            <p className="mt-8 text-lg text-gray-300 leading-8 max-w-xl">
+              Passionate Full Stack Developer specializing in React,
+              Node.js, Express.js and MongoDB.
+              I build modern, responsive, scalable and user-friendly web
+              applications that solve real-world problems and provide
+              outstanding user experiences.
+            </p>
 
-             
-                </div>
-                     
-                </div> 
-               </div>
+            <div className="flex flex-wrap gap-5 mt-10">
+
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: .95 }}
+                onClick={() => navigate("/work")}
+                className="px-8 py-4 rounded-full bg-cyan-500 hover:bg-cyan-700 text-white font-semibold shadow-xl"
+              >
+                View My Work
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: .95 }}
+                onClick={() => navigate("/sendMail")}
+                className="px-8 py-4 rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all"
+              >
+                Contact Me
+              </motion.button>
+
             </div>
-        </aside>
-         </motion.div>
-        </AnimatePresence>
+          </motion.div>
+
+           {/* Right Side */}
+          <motion.div  className="flex justify-center order-1 lg:order-2 mt-10 lg:mt-0"
+            initial={{ opacity: 0, x: 80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: .8 }}>
+
+            <motion.div
+              animate={{
+                y: [0, -20, 0]
+              }}
+
+              transition={{
+                duration: 4,
+                repeat: Infinity
+              }}
+              className="relative">
+
+              <div className="absolute inset-0 rounded-full bg-cyan-500 blur-3xl opacity-30" />
+
+              <img
+                src="prashant.jpg"
+                alt="Prashant"
+                className="relative w-80 h-80 lg:w-[430px] lg:h-[430px] rounded-full border-4 border-cyan-400 object-cover shadow-[0_0_50px_rgba(6,182,212,.6)]"
+                  />
+            </motion.div>
+
+          </motion.div> 
+
+        </div>
+
+      </div>
+
     </div>
-
   );
-};
-
-
-export default HomePage;
-
+}

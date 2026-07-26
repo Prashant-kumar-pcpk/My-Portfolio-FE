@@ -1,71 +1,69 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+const navItems = [
+  { name: "Home", path: "/Home" },
+  { name: "Skills", path: "/Skills" },
+  { name: "Work", path: "/Work" },
+  { name: "About", path: "/About" },
+  { name: "Contact Us", path: "/Contact" },
+];
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  
-    
-  
-  
   return (
-    <div className="bg-gray-800 p-8">
-      <nav className="flex justify-center items-between space-x-0px ">
-        {/* <div className="flex flex-wrap justify-items-start mx-auto max-w-screen-2xl"> 
-          <Link to="/" className="flex items-start">
-            <img src="My image.jpg" className="mr-3 h-12" alt="Logo" />
-          </Link> 
-        </div> */}
+    <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-lg shadow-lg">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-        <ul className="flex space-x-20 text-white font-bold">
-          <li className="text-lg">
-            <Link
-             to="/Home"
-              className=" hover:text-orange-700"  >
-              Home
-            </Link>
-          </li>
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-white">
+          <NavLink to="/Home">Prashant kumar</NavLink>
+        </h1>
 
-          <li className="text-lg">
-            <Link
-              to="/Skills"
-              className="hover:text-rose-400" >
-              Skills
-            </Link>
-          </li>
+        {/* Mobile Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-white text-3xl"
+        >
+          ☰
+        </button>
 
-          <li className="relative text-lg">
-            <Link
-               to='/Work'
-              className="hover:text-rose-400 focus:outline-none" >
-              Work
-            </Link>
-          </li>
-
-           <li className="text-lg">
-            <Link
-              to="/About"
-              className="hover:text-rose-400" >
-              About
-            </Link>
-          </li>
-
-          <li className="text-lg">
-            <Link
-               to="/Contact"
-              className="hover:text-rose-400"
-            >
-              Contact Us
-            </Link>
-          </li>
+        {/* Menu */}
+        <ul
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } md:flex flex-col md:flex-row absolute md:static top-16 left-0 w-full md:w-auto bg-slate-900 md:bg-transparent items-center gap-6 md:gap-10 py-6 md:py-0`}
+        >
+          {navItems.map((item) => (
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `relative px-3 py-2 text-lg font-medium transition-all duration-300
+                  ${
+                    isActive
+                      ? "text-orange-500"
+                      : "text-white hover:text-orange-400"
+                  }
+                  after:absolute after:left-0 after:-bottom-1 after:h-[2px]
+                  after:bg-orange-500 after:transition-all after:duration-300
+                  ${
+                    isActive
+                      ? "after:w-full"
+                      : "after:w-0 hover:after:w-full"
+                  }`
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
-      </nav>
-      {/* <button 
-      onClick={handleClick}
-      className="bg-orange-500 text-white px-4 py-2 rounded-3xl hover:bg-orange-700 absolute right-8 top-8">
-        
-      </button> */}
-    </div>
+      </div>
+    </header>
   );
 };
 
