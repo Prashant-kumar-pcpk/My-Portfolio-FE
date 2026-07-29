@@ -64,9 +64,10 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           exit={{ opacity: 0 }}
           onClick={onClose}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{
-                 backgroundImage: `url(${bg})`,
-                   }} >
+          // style={{
+          //        backgroundImage: `url(${bg})`,
+          //          }} 
+                   >
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
@@ -149,7 +150,8 @@ export default function Project() {
     <div className="min-h-screen  px-4 py-12 sm:px-6 lg:px-8"
     style={{
          backgroundImage: `url(${bg})`,
-            }} >
+            }} 
+            >
               
       <div className="mx-auto max-w-7xl">
         {/* Header */}

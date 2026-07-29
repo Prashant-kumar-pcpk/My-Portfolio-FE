@@ -8,7 +8,13 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-screen overflow-hidden flex items-center">
+    <div className="relative min-h-screen overflow-hidden flex items-center"
+    style={{
+      backgroundImage: "url('/main-1.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}
+    >
 
        {/* Resume Button */}
       <div className="absolute top-6 right-6 lg:right-12 z-16">
@@ -58,8 +64,8 @@ export default function Home() {
 
               <Typewriter
                 words={[
-                  "Full Stack Developer",
-                  "MERN Stack Developer",
+                  "Full Stack Developer (MERN)",
+                  // "MERN Stack Developer",
                  
                 ]}
                 loop={0}
