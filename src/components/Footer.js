@@ -245,7 +245,7 @@ export default function Footer() {
       <div>
         <Link to="/">
           <img
-            src="my blur-photo.jpg"
+            src="/Prashant kr.png"
             alt="logo"
             className="w-24 h-24 rounded-full object-cover"
           />

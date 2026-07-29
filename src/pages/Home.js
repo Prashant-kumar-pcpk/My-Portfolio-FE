@@ -13,7 +13,7 @@ export default function Home() {
        {/* Resume Button */}
       <div className="absolute top-6 right-6 lg:right-12 z-16">
         <motion.a
-          href="/Prashant_Kumar_Resume.pdf" // Put your resume inside the public folder
+          href="/prashant kumar-cv.pdf" // Put your resume inside the public folder
           download
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}

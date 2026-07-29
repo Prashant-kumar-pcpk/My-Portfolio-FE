@@ -28,10 +28,15 @@ export default function Contact() {
   const formData = { name, email, phone };
 
   try {
+    // const response = await axios.post("/contact", formData);
+
+
     const response = await fetch("http://localhost:8088/contact", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(formData),
+
+
 });
 
     // ✅ check status before parsing
