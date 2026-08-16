@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {motion, AnimatePresence} from "framer-motion";
 import bg from '../assets/skill.avif';
-// import axios from "../API";
+
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -83,7 +83,7 @@ export default function Contact() {
           <div 
           className="mt-8  overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-6 mr-2 bg-gray-200 sm:rounded-lg">
+              <div className="p-6 mr-2 bg-gray-200 sm:rounded-xl">
                 <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
                   Get in touch:
                 </h1>
@@ -94,7 +94,7 @@ export default function Contact() {
                 <div className="flex items-center mt-8 text-gray-600">
                   {/* address icon and content */}
                   <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                    Acme Inc, Street, State, Postal Code
+                   Sector-53, Noida, pin Code- 201307
                   </div>
                 </div>
 
@@ -121,7 +121,7 @@ export default function Contact() {
                     name="name"
                     id="name"
                     placeholder="Full Name"
-                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-3 rounded-2xl bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -136,7 +136,7 @@ export default function Contact() {
                     name="email"
                     id="email"
                     placeholder="Email"
-                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-3 rounded-2xl bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -151,7 +151,7 @@ export default function Contact() {
                     name="phone"
                     id="phone"
                     placeholder="Telephone Number"
-                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                    className="w-100 mt-2 py-3 px-3 rounded-2xl bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                   />
