@@ -22,7 +22,7 @@ const skills = [
   { title: 'JavaScript (ES6+)', icon: SiJavascript, category: 'Frontend' },
   { title: 'Node.js', icon: SiNodedotjs, category: 'Backend' },
   { title: 'Express.js', icon: SiExpress, category: 'Backend' },
-  {title: 'MySQL', icon: SiMysql, category: 'Database' },
+  { title: 'MySQL', icon: SiMysql, category: 'Database' },
   { title: 'MongoDB', icon: SiMongodb, category: 'Database' },
   { title: 'Tailwind CSS', icon: SiTailwindcss, category: 'UI' },
   { title: 'HTML5', icon: SiHtml5, category: 'UI' },
@@ -55,7 +55,7 @@ const experience = [
     period: 'Jan 2024 - May 2024',
     description:
       'Contributed to client-facing web applications using React, Node.js, Express, and MongoDB. Improved user experience with responsive UI and reusable components.',
-  },  
+  },
 ];
 
 const achievements = [
@@ -70,9 +70,9 @@ const objective =
 const About = () => {
   return (
     <main className="min-h-screen  text-slate-100 px-4 py-8 sm:px-6 lg:px-10"
-    style={{
-           backgroundImage: `url(${bg})`,
-               }} 
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
     >
       <div className="mx-auto max-w-7xl">
         <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-xl shadow-cyan-500/10 backdrop-blur-xl sm:p-12">
@@ -198,7 +198,7 @@ const About = () => {
               </ul>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -211,7 +211,7 @@ const About = () => {
                 </div>
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-slate-400">Experience</p>
-                  <h2 className="text-2xl font-semibold text-white">Internship</h2>
+                  <h2 className="text-2xl font-semibold text-white"></h2>
                 </div>
               </div>
               <div className="mt-6 space-y-6">
@@ -223,7 +223,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
           </section>
         </div>
 
