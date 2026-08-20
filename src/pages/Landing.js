@@ -37,8 +37,10 @@ export default function Main(){
 
           {/* Heading */}
           <h1 className="mt-8 text-5xl md:text-5xl font-bold">
-            Hi, I'm <span className="text-white">Prashant Kumar </span>
-          </h1>
+            Hi, I'm <span className=" text-6xl bg-gradient-to-r from-cyan-400 via-orange-500 to-cyan-500 bg-clip-text text-transparent">
+                          Prashant Kumar
+                        </span>
+</h1>
 
           {/* Subtitle */}
           <p className="mt-4 text-xl md:text-2xl text-gray-300 tracking-widest uppercase">
@@ -52,8 +54,6 @@ export default function Main(){
                   "Full-Stack Software Engineer ", 
                   "Real-Time Systems ", 
                   "AI + React + Node.js"
-
-
                 ]}
                 loop={0}
                 cursor

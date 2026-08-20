@@ -21,7 +21,7 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="relative px-6 py-20">
+    <section id="achievements" className="relative min-h-screen px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8">
       <div className="mx-auto max-w-6xl">
 
         <motion.div

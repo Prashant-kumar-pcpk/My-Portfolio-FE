@@ -1,25 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import bg from '../assets/skill.avif';
 import { FiBookOpen, FiTarget } from 'react-icons/fi';
-import {  education, objective,  } from '../data/myData';
-
-
+import { education, objective } from '../data/myData';
 
 const About = () => {
   return (
     <section
       id="about"
-      className="relative min-h-screen text-slate-100 px-12 py-8 sm:px-6 lg:px-12"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
+      className="relative min-h-screen text-slate-100 px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-12"
     >
-      <div className="mx-auto my-8 max-w-7xl">
-        <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 p-8 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl sm:p-12">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-3xl border border-gray-100 bg-slate-900/60 p-8 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl sm:p-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(168,85,247,0.18),_transparent_35%)]" aria-hidden="true" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -30,7 +21,7 @@ const About = () => {
             <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
               <div>
                 <p className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-medium text-amber-500">
-                  <span className="h-2.5 w-2.5 rounded-full bg-cyan-300 animate-pulse" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse" />
                   MERN Stack Developer
                 </p>
                 <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -71,10 +62,10 @@ const About = () => {
               </div>
             </div>
           </motion.div>
-        </section>
+        </div>
 
  {/*  =================== Career Objective ==================== */}
-          <section className=" mt-12 mb-8 space-y-8">
+          <section className="mx-8 mt-12 mb-8 space-y-8">
             <motion.article
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +111,7 @@ const About = () => {
           </section>
 
 {/* ==============Education====================== */}
-        <section className="mt-8 space-y-8">
+        <section className=" mx-8 mt-8 space-y-8">
           {education.map((item, index) => (
             <motion.article
               key={item.title}

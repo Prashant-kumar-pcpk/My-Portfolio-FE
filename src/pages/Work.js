@@ -180,7 +180,7 @@ export default function Project() {
   return (
     <section
       id="work"
-      className="relative min-h-screen overflow-hidden px-4 py-16 sm:px-6 lg:px-8"
+      className="relative min-h-screen overflow-hidden px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         {/* ================= HEADER ================= */}
@@ -188,7 +188,7 @@ export default function Project() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="m-12 text-center"
+          className="mb-12 text-center"
         >
           <h2 className="text-4xl font-bold text-amber-400 sm:text-5xl">
             Featured Projects

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import  bg from "../assets/skill.avif";
 
 export default function SendMail() {
   const [form, setForm] = useState({
@@ -45,22 +44,15 @@ export default function SendMail() {
   };
 
   return (
-<div
- className="{`min-h-screen`}"
-      style={{
-        backgroundImage: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
->
-
-<AnimatePresence>
+    <div className="relative min-h-screen px-4 py-16">
+      <AnimatePresence>
         <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100%" }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-             className="max-w-6xl mx-auto sm:px-6 border-y-green-800 lg:px-8">
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="max-w-4xl mx-auto sm:px-6 lg:px-8"
+        >
 
 
           <div className="min-h-screen bg-transparent rounded-lg flex items-center justify-center px-6 py-4">
