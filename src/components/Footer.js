@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 
 import {
@@ -9,19 +8,22 @@ import {
 
 const footerLinks = [
   {
-    title: "Resources",
+    title: "Navigation",
     links: [
-      { name: "Home", path: "/Home" },
-      { name: "About", path: "/About" },
-      { name: "Skills", path: "/Skills" },
-      { name: "Work", path: "/Work" },
+      { name: "Home", id: "home", path: "/Home#home" },
+      { name: "About", id: "about", path: "/About#about" },
+      { name: "Skills", id: "skills", path: "/Skills#skills" },
+      { name: "Projects", id: "work", path: "/Work#work" },
+      { name: "Achievements", id: "achievements", path: "/Achievements#achievements" },
+      { name: "Contact Us", id: "contact", path: "/Contact#contact" },
     ],
   },
   {
-    title: "Legal",
+    title: "Connect",
     links: [
-      { name: "Privacy Policy", path: "/privacy" },
-      { name: "Terms & Conditions", path: "/terms" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/prashant-kumar-frontend-developer/" },
+      { name: "GitHub", url: "https://github.com/Prashant-kumar-pcpk" },
+      { name: "Email", url: "mailto:prashantkumar.pcpk@gmail.com" },
     ],
   },
 ];
@@ -39,22 +41,39 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  return (
-    <footer className="bg-slate-900 text-white">
+  const handleScrollTo = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", `#${id}`);
+    } else {
+      window.location.href = `/Home#${id}`;
+    }
+  };
 
-      <div className="max-w-7xl mx-auto px-6 py-10">
+  return (
+    <footer className="relative border-t border-white/10 bg-slate-950/90 text-white">
+
+      <div className="max-w-7xl mx-auto px-6 py-12">
 
         <div className="flex flex-col md:flex-row justify-between gap-10">
 
           {/* Logo */}
           <div>
-            <Link to="/">
+            <a
+              href="#home"
+              onClick={(e) => handleScrollTo(e, "home")}
+              className="inline-block"
+            >
               <img
                 src="/Prashant kr.png"
                 alt="logo"
-                className="w-24 h-24 rounded-full object-cover"
+                className="w-20 h-20 rounded-full object-cover border-2 border-cyan-400/40 shadow-lg shadow-cyan-500/20 hover:scale-105 transition"
               />
-            </Link>
+            </a>
+            <h3 className="mt-3 text-xl font-bold text-white">Prashant Kumar</h3>
+            <p className="text-sm text-slate-400">Full Stack MERN Developer</p>
           </div>
 
           {/* Dynamic Links */}
@@ -68,12 +87,24 @@ export default function Footer() {
                 <ul className="space-y-3">
                   {section.links.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        to={item.path}
-                        className="text-gray-300 hover:text-orange-500 duration-300"
-                      >
-                        {item.name}
-                      </Link>
+                      {item.id ? (
+                        <a
+                          href={`#${item.id}`}
+                          onClick={(e) => handleScrollTo(e, item.id)}
+                          className="text-gray-300 hover:text-orange-500 duration-300 text-sm"
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-300 hover:text-orange-500 duration-300 text-sm"
+                        >
+                          {item.name}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

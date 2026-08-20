@@ -1,17 +1,23 @@
 
-// import React from "react";
+// import React, { useEffect } from "react";
 // import { Outlet, useLocation } from "react-router-dom";
 // import Header from "../components/Header";
 // import Footer from "../components/Footer";
 
-// const backgrounds = {
- 
-// };
+// const backgrounds = {};
 
 // export default function Layout() {
 //   const location = useLocation();
 
 //   const background = backgrounds[location.pathname];
+
+//   // Route change hone par page ko smoothly top par le jayega
+//   useEffect(() => {
+//     window.scrollTo({
+//       top: 0,
+//       behavior: "smooth",
+//     });
+//   }, [location.pathname]);
 
 //   return (
 //     <div className="relative min-h-screen flex flex-col overflow-hidden">
@@ -20,14 +26,11 @@
 //       {background && (
 //         <>
 //           <div
-//             className="fixed inset-0 -z-20 bg-cover bg-center transition-all duration-700"
-//             style={{
-//               backgroundImage: `url(${background})`,
-//             }}
+//             className="galaxy-bg min-h-screen"
+           
 //           />
 
-//           {/* Dark Overlay */}
-//           <div className="fixed inset-0 -z-10 bg-black/50 backdrop-blur-[2px]" />
+        
 //         </>
 //       )}
 
@@ -52,44 +55,27 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const backgrounds = {};
-
 export default function Layout() {
   const location = useLocation();
 
-  const background = backgrounds[location.pathname];
-
-  // Route change hone par page ko smoothly top par le jayega
+  // Route change hone par page ko smoothly top par le jayega jab koi specific hash ya section na ho
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, [location.pathname]);
+    if (!location.hash && (location.pathname === "/" || location.pathname === "/home")) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [location.pathname, location.hash]);
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
-
-      {/* Dynamic Background */}
-      {background && (
-        <>
-          <div
-            className="fixed inset-0 -z-20 bg-cover bg-center transition-all duration-700"
-            style={{
-              backgroundImage: `url(${background})`,
-            }}
-          />
-
-          {/* Dark Overlay */}
-          <div className="fixed inset-0 -z-10 bg-black/50 backdrop-blur-[2px]" />
-        </>
-      )}
-
+    <div className="galaxy-bg relative flex min-h-screen flex-col overflow-hidden">
+      
       {/* Header */}
       <Header />
 
       {/* Main Content */}
-      <main className="flex-1 animate-fade">
+      <main className="relative z-10 flex-1 animate-fade">
         <Outlet />
       </main>
 

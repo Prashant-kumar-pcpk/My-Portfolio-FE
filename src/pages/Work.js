@@ -1,63 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import bg from "../assets/mainbg.jpg";
 
-const projects = [
-  {
-    title: "Movie Review App",
-    description:
-      "Built a responsive React movie review app with live search, filter controls, detailed movie pages, and interactive star ratings. Features include dynamic movie listings, real-time search, advanced filtering by genre and year, and a 5-star rating system with persistent storage.",
-    stack: ["React", "Tailwind CSS", "React Hooks", "Mock API"],
-    image: "/work-image/Review app.png",
-    github: "https://github.com/Prashant-kumar-pcpk/Movie-Review-app",
-    live: "https://pkmoviereviewapp.netlify.app",
-  },
-  {
-    title: "Full-Stack Blogging Platform",
-    description:
-      "Delivered a full-stack blogging platform with React front-end and Express/MongoDB back-end supporting authentication, posts, comments, likes, and moderation. Includes JWT-based security, role-based access control, and comment spam detection.",
-    stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
-    image: "/work-image/BloggingApp SC.png",
-    github: "https://github.com/Prashant-kumar-pcpk/FE-Blogging-Platform",
-    live: "https://prashantdairies-blogging-platform.netlify.app",
-  },
-  {
-    title: "Recipe App",
-    description:
-      "Developed an interactive recipe search and discovery application with responsive design and dynamic content rendering. Users can browse recipes, search by ingredients or cuisine, view detailed instructions, and filter by dietary preferences.",
-    stack: ["JavaScript", "HTML", "Tailwind CSS", "API Integration"],
-    image: "/work-image/Reciepe App.png",
-    github: "https://github.com/Prashant-kumar-pcpk/-Recipe-app",
-    live: "https://remarkable-fox-3b42ee.netlify.app",
-  },
-  {
-    title: "Holiday Finder App",
-    description:
-      "Created a public holiday search tool using external API lookup, CSV export, dark mode toggle, and responsive results display. Users can search holidays by country and year, export results as CSV, and toggle between dark and light themes.",
-    stack: ["HTML", "Tailwind CSS", "JavaScript", "Fetch API"],
-    image: "/work-image/holiday finder app.png",
-    github: "https://github.com/Prashant-kumar-pcpk/Holiday-Finder-App",
-    live: "https://holidays-finder.netlify.app",
-  },
-  {
-    title: "Jokes-Pitara",
-    description:
-      "Built an entertaining jokes application featuring dynamic joke fetching, category filtering, and smooth user interactions. Includes favorites functionality, sharing capabilities, and a clean UI designed for optimal user engagement and entertainment.",
-    stack: ["JavaScript", "HTML", "CSS", "REST API"],
-    image: "/work-image/jokes pitara.jpg",
-    github: "https://github.com/Prashant-kumar-pcpk/Jokes-Pitara",
-    live: "https://jokes-pitara.netlify.app",
-  },
-  {
-    title: "Life Dashboard",
-    description:
-      "Developed a React dashboard for daily check-ins with analytics, timeline history, localStorage persistence, and data visualization using Recharts. Track focus, energy, and mood metrics with visual charts and historical timeline.",
-    stack: ["React", "Tailwind CSS", "Recharts", "LocalStorage"],
-    image: "/work-image/life dashboard.webp",
-    github: "https://github.com/Prashant-kumar-pcpk/Life-Dashboard",
-    live: "https://life-dashboard.netlify.app",
-  },
-];
+import {projects} from "../data/myData";
 
 /* ============== PROJECT MODAL ============== */
 const ProjectModal = ({ project, isOpen, onClose }) => {
@@ -69,7 +13,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-12 backdrop-blur-sm"
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -97,7 +41,12 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
               </h3>
 
               <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
+                {(Array.isArray(project.stack)
+                  ? project.stack
+                  : typeof project.stack === "string"
+                  ? project.stack.split(",").map((s) => s.trim())
+                  : []
+                ).map((tech) => (
                   <span
                     key={`modal-${project.title}-${tech}`}
                     className="rounded-full border border-cyan-400/30 bg-cyan-500/20 px-3 py-1 text-sm text-cyan-300"
@@ -229,11 +178,9 @@ export default function Project() {
   const showControls = projects.length > visibleCount;
 
   return (
-    <div
-      className="min-h-screen overflow-hidden bg-cover bg-center px-4 py-12 sm:px-6 lg:px-8"
-      style={{
-        backgroundImage: `url(${bg})`,
-      }}
+    <section
+      id="work"
+      className="relative min-h-screen overflow-hidden px-4 py-16 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         {/* ================= HEADER ================= */}
@@ -241,13 +188,13 @@ export default function Project() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          className="m-12 text-center"
         >
-          <h2 className="text-4xl font-bold text-white sm:text-5xl">
-            My some Projects
+          <h2 className="text-4xl font-bold text-amber-400 sm:text-5xl">
+            Featured Projects
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-200">
             Explore my latest work showcasing expertise in React, Full-Stack
             development, and modern web technologies. All projects built with
             clean code, responsive design, and professional standards.
@@ -263,13 +210,13 @@ export default function Project() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               className=" absolute -top-16 right-0 z-20 flex items-center gap-3 " >
-              {/* PREVIOUS */}
 
+              {/* PREVIOUS */}
               <button
                 onClick={handlePrev}
                 disabled={activeIndex === 0}
                 aria-label="Previous projects"
-                className=" flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-700 bg-slate-950 text-white transition-all duration-300 hover:border-cyan-400 hover:text-cyan-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12 " >
+                className=" flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-600 bg-slate-950 text-white transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12 " >
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -286,12 +233,11 @@ export default function Project() {
               </button>
 
               {/* NEXT */}
-
               <button
                 onClick={handleNext}
                 disabled={activeIndex >= maxIndex}
                 aria-label="Next projects"
-                className=" flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-700 bg-slate-950 text-white transition-all duration-300 hover:border-cyan-400 hover:text-cyan-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12 " >
+                className=" flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-700 bg-slate-950 text-white transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12 " >
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -320,58 +266,64 @@ export default function Project() {
                 transition: "transform 500ms cubic-bezier(0.4, 0, 0.2, 1)",
               }}
             >
-              {projects.map((project) => (
-                <motion.article
-                  key={project.title}
-                  className="  w-full flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] "
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {/* CARD */}
+              {projects.map((project) => {
+                const stackList = Array.isArray(project.stack)
+                  ? project.stack
+                  : typeof project.stack === "string"
+                  ? project.stack.split(",").map((s) => s.trim())
+                  : [];
 
-                  <div
-                    className=" group flex h-[520px] flex-col overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-950 to-slate-900 shadow-xl transition-all duration-300  hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-500/20 " >
+                return (
+                  <motion.article
+                    key={project.title}
+                    className="  w-full flex-shrink-0 sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] "
+                    whileHover={{ y: -8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* CARD */}
 
-                    {/* =============== IMAGE ============== */}
-                    <div className="relative h-48 w-full flex-shrink-0 overflow-hidden bg-slate-800">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className=" h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 "
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/50" />
-                    </div>
+                    <div
+                      className=" group flex h-[520px] flex-col overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-950 to-slate-900 shadow-xl transition-all duration-300  hover:border-amber-400/50 hover:shadow-2xl hover:shadow-cyan-500/20 " >
 
-                    {/* ============== CONTENT =============== */}
-                    <div className="flex flex-1 flex-col justify-between gap-4 px-5 py-5 sm:px-6 ">
-                      {/* TITLE */}
-                      <div className="space-y-2">
-                        <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400/70">
-                          Project
-                        </p>
-
-                        <h3 className=" line-clamp-2 text-xl font-bold leading-snug text-white transition duration-300 group-hover:text-cyan-300 " >
-                          {project.title}
-                        </h3>
+                      {/* =============== IMAGE ============== */}
+                      <div className="relative h-48 w-full flex-shrink-0 overflow-hidden bg-slate-800">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className=" h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 "
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/50" />
                       </div>
 
-                      {/* TECH STACK */}
+                      {/* ============== CONTENT =============== */}
+                      <div className="flex flex-1 flex-col justify-between gap-4 px-5 py-5 sm:px-6 ">
+                        {/* TITLE */}
+                        <div className="space-y-2">
+                          <p className="text-xs font-semibold uppercase tracking-widest text-cyan-400/70">
+                            Project
+                          </p>
 
-                      <div className="flex flex-wrap gap-2">
-                        {project.stack.slice(0, 3).map((tech) => (
-                          <span
-                            key={`${project.title}-${tech}`}
-                            className=" rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2  py-1 text-xs font-medium text-cyan-300 " >
-                            {tech}
-                          </span>
-                        ))}
+                          <h3 className=" line-clamp-2 text-xl font-bold leading-snug text-amber-400 transition duration-300 group-hover:text-cyan-300 " >
+                            {project.title}
+                          </h3>
+                        </div>
 
-                        {project.stack.length > 3 && (
-                          <span className="px-2 py-1 text-xs text-slate-400">
-                            +{project.stack.length - 3} more
-                          </span>
-                        )}
-                      </div>
+                        {/* TECH STACK */}
+                        <div className="flex flex-wrap gap-2">
+                          {stackList.slice(0, 3).map((tech) => (
+                            <span
+                              key={`${project.title}-${tech}`}
+                              className=" rounded-full border border-cyan-400/30 bg-cyan-500/10 px-2  py-1 text-xs font-medium text-cyan-300 " >
+                              {tech}
+                            </span>
+                          ))}
+
+                          {stackList.length > 3 && (
+                            <span className="px-2 py-1 text-xs text-slate-400">
+                              +{stackList.length - 3} more
+                            </span>
+                          )}
+                        </div>
 
                       {/* BUTTONS */}
 
@@ -397,13 +349,14 @@ export default function Project() {
 
                       <button
                         onClick={() => setSelectedProject(project)}
-                        className="  w-full rounded-full border border-cyan-400/30 bg-cyan-500/10 py-2 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:border-cyan-300/60  hover:bg-cyan-500/20 " >
+                        className="  w-full rounded-full border border-cyan-400/30 bg-cyan-500/10 py-2 text-sm font-semibold text-cyan-300 transition-all duration-300 hover:border-amber-300/60  hover:bg-cyan-500/20 " >
                         View Details
                       </button>
                     </div>
                   </div>
                 </motion.article>
-              ))}
+              );
+            })}
             </div>
           </div>
 
@@ -423,12 +376,12 @@ export default function Project() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-16 grid gap-6 sm:grid-cols-2"
+          className="mt-16 mx-10 grid gap-6 sm:grid-cols-2"
         >
 
           {/* RESPONSIVE DESIGN */}
           <div
-            className=" rounded-xl border border-slate-700/50 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg " >
+            className=" rounded-xl border border-amber-700/50 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg " >
             <h3 className="text-lg font-bold text-white">Responsive Design</h3>
 
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
@@ -439,7 +392,7 @@ export default function Project() {
 
           {/* TECH STACK */}
           <div
-            className=" rounded-xl border border-slate-700/50 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg " >
+            className=" rounded-xl border border-amber-700/50 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg " >
             <h3 className="text-lg font-bold text-white">Tech Stack Focus</h3>
 
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
@@ -456,6 +409,6 @@ export default function Project() {
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
       />
-    </div>
+    </section>
   );
 }
