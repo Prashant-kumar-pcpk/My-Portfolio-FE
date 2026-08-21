@@ -290,7 +290,7 @@ export default function Project() {
                         <img
                           src={project.image}
                           alt={project.title}
-                          className=" h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 "
+                          className=" h-full w-full object-contain transition-transform duration-500 group-hover:scale-110 "
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/50" />
                       </div>

@@ -205,7 +205,7 @@ export const projects = [
     live: "https://pkmoviereviewapp.netlify.app",
   },
   {
-    title: "Full-Stack Blogging Platform",
+    title: "Full-Stack Blogging Platform (Prashant Dairies)",
     description:
       "Delivered a full-stack blogging platform with React front-end and Express/MongoDB back-end supporting authentication, posts, comments, likes, and moderation. Includes JWT-based security, role-based access control, and comment spam detection.",
     stack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
@@ -218,7 +218,7 @@ export const projects = [
     description:
       "Developed an interactive recipe search and discovery application with responsive design and dynamic content rendering. Users can browse recipes, search by ingredients or cuisine, view detailed instructions, and filter by dietary preferences.",
     stack: ["JavaScript", "HTML", "Tailwind CSS", "API Integration"],
-    image: "/work-image/Reciepe App.png",
+    image: "/work-image/Reciepe SC (1).png",
     github: "https://github.com/Prashant-kumar-pcpk/-Recipe-app",
     live: "https://remarkable-fox-3b42ee.netlify.app",
   },
