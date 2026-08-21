@@ -191,7 +191,7 @@ export const projects = [
     description:
       "A full-stack e-commerce website with product browsing, user authentication, shopping cart, order management, and a responsive user interface.",
     stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    image: "/images/ecommerce.png",
+    image: "/work-image/imgE-commerce.png",
     github: "https://github.com/yourusername/ecommerce-website",
     live: "https://your-ecommerce-website.vercel.app"
   },
