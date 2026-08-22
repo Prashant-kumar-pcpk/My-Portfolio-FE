@@ -187,13 +187,13 @@ export const objective =
 
 export const projects = [
   {
-    title: "GCI Space & Decore.",
+    title: " Email-Summarizer",
     description:
-      "A full-stack Interior website with product browsing, , shopping cart, order management, and a responsive user interface.",
-    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT"],
-    image: "/work-image/gci_space_decore.png",
-    github: "https://github.com/yourusername/gci-space-decore",
-    live: "https://gci-space-decore.vercel.app"
+      "A full-stack AI-powered email productivity web application that extracts key highlights, generates concise bullet-point summaries, detects sentiment, and generates action-item checklists from email threads with real-time API integration.",
+    stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "AI API"],
+    image: "/work-image/email-summarizer.jpg",
+    github: "https://github.com/Prashant-kumar-pcpk/Email-Summarizer",
+    live: "https://email-summarizer-ai.vercel.app",
   },
   {
     title: "E-commerce Website",
@@ -205,15 +205,6 @@ export const projects = [
     live: "https://your-ecommerce-website.vercel.app"
   },
   {
-    title: "Movie Review App",
-    description:
-      "Built a responsive React movie review app with live search, filter controls, detailed movie pages, and interactive star ratings. Features include dynamic movie listings, real-time search, advanced filtering by genre and year, and a 5-star rating system with persistent storage.",
-    stack: ["React", "Tailwind CSS", "React Hooks", "Mock API"],
-    image: "/work-image/Review app.png",
-    github: "https://github.com/Prashant-kumar-pcpk/Movie-Review-app",
-    live: "https://pkmoviereviewapp.netlify.app",
-  },
-  {
     title: "Full-Stack Blogging Platform (Prashant Dairies)",
     description:
       "Delivered a full-stack blogging platform with React front-end and Express/MongoDB back-end supporting authentication, posts, comments, likes, and moderation. Includes JWT-based security, role-based access control, and comment spam detection.",
@@ -221,6 +212,15 @@ export const projects = [
     image: "/work-image/BloggingApp SC.png",
     github: "https://github.com/Prashant-kumar-pcpk/FE-Blogging-Platform",
     live: "https://prashantdairies-blogging-platform.netlify.app",
+  },
+  {
+    title: "Movie Review App",
+    description:
+      "Built a responsive React movie review app with live search, filter controls, detailed movie pages, and interactive star ratings. Features include dynamic movie listings, real-time search, advanced filtering by genre and year, and a 5-star rating system with persistent storage.",
+    stack: ["React", "Tailwind CSS", "React Hooks", "Mock API"],
+    image: "/work-image/Review app.png",
+    github: "https://github.com/Prashant-kumar-pcpk/Movie-Review-app",
+    live: "https://pkmoviereviewapp.netlify.app",
   },
   {
     title: "Recipe App",
