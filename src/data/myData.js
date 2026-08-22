@@ -192,7 +192,7 @@ export const projects = [
       "A full-stack AI-powered email productivity web application that extracts key highlights, generates concise bullet-point summaries, detects sentiment, and generates action-item checklists from email threads with real-time API integration.",
     stack: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "AI API"],
     image: "/work-image/email-summarizer.jpg",
-    github: "https://github.com/Prashant-kumar-pcpk/Email-Summarizer",
+    github: "https://github.com/Prashant-kumar-pcpk/FE-Email-Summarizer",
     live: "https://email-summarizer-ai.vercel.app",
   },
   {
