@@ -187,6 +187,15 @@ export const objective =
 
 export const projects = [
   {
+    title: "GCI Space & Decore.",
+    description:
+      "A full-stack Interior website with product browsing, , shopping cart, order management, and a responsive user interface.",
+    stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT"],
+    image: "/work-image/gci_space_decore.png",
+    github: "https://github.com/yourusername/gci-space-decore",
+    live: "https://gci-space-decore.vercel.app"
+  },
+  {
     title: "E-commerce Website",
     description:
       "A full-stack e-commerce website with product browsing, user authentication, shopping cart, order management, and a responsive user interface.",

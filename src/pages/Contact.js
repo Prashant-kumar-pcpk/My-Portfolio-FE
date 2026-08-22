@@ -118,7 +118,7 @@ export default function Contact() {
                 {/* Contact List */}
                 <div className="mt-6 space-y-4">
                   {/* Location */}
-                  <div className="group flex items-start gap-4 rounded-3xl border border-white/5 bg-slate-950/50 p-2 transition-all duration-300 hover:border-amber-400/30 hover:bg-slate-950/80">
+                  <div className="group flex items-start gap-4 rounded-full border border-white/5 bg-slate-950/50 p-2 transition-all duration-300 hover:border-amber-400/30 hover:bg-slate-950/80">
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-3xl border border-amber-400/20 bg-amber-400/10 text-amber-400 transition group-hover:scale-105">
                       <MapPin className="h-5 w-5" />
                     </div>
@@ -135,9 +135,9 @@ export default function Contact() {
                   {/* Phone */}
                   <a
                     href="tel:+917484976808"
-                    className="group flex items-start gap-4 rounded-3xl border border-white/5 bg-slate-950/50 p-2 transition-all duration-300 hover:border-cyan-400/30 hover:bg-slate-950/80"
+                    className="group flex items-start gap-4 rounded-full border border-white/5 bg-slate-950/50 p-2 transition-all duration-300 hover:border-cyan-400/30 hover:bg-slate-950/80"
                   >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-3xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-400 transition group-hover:scale-105">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-400 transition group-hover:scale-105">
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
@@ -153,7 +153,7 @@ export default function Contact() {
                   {/* Email */}
                   <a
                     href="mailto:prashantkumar.pcpk@gmail.com"
-                    className="group flex items-start gap-4 rounded-32xl border border-white/5 bg-slate-950/50 p-2 transition-all duration-300 hover:border-purple-400/30 hover:bg-slate-950/80"
+                    className="group flex items-start gap-4 rounded-full border border-white/5 bg-slate-950/50 p-2 transition-all duration-300 hover:border-purple-400/30 hover:bg-slate-950/80"
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-3xl border border-purple-400/20 bg-purple-400/10 text-purple-400 transition group-hover:scale-105">
                       <Mail className="h-5 w-5" />
@@ -170,7 +170,7 @@ export default function Contact() {
                 </div>
 
                 {/* Status Badge */}
-                <div className="mt-8 flex items-center gap-3 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4">
+                <div className="mt-8 flex items-center gap-3 rounded-full border border-emerald-500/20 bg-emerald-500/10 p-4">
                   <span className="relative flex h-3 w-3">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                     <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
@@ -299,7 +299,7 @@ export default function Contact() {
                     disabled={loading}
                     whileHover={{ scale: loading ? 1 : 1.01 }}
                     whileTap={{ scale: loading ? 1 : 0.98 }}
-                    className="group relative mt-2 flex mx-auto px-8 items-center justify-center gap-2 overflow-hidden rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-cyan-500 px-6 py-4 font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="group relative mt-2 flex mx-auto px-8 items-center justify-center gap-2 overflow-hidden rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-cyan-500 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {loading ? (
                       <div className="flex items-center gap-2">

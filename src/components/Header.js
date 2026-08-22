@@ -64,14 +64,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed left-1/2 top-4 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 rounded-full border border-white/10 bg-slate-950/80 px-5 py-3 shadow-2xl backdrop-blur-xl">
+    <nav className="fixed left-1/2 top-4 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 rounded-full border border-amber-400 bg-slate-950/80 px-5 py-3 shadow-2xl backdrop-blur-xl">
       <div className="flex items-center justify-between">
         <a
           href="#home"
           onClick={handleLogoClick}
-          className="text-lg font-bold tracking-wide text-white transition hover:text-cyan-400"
+          className="text-lg  font-bold tracking-wide text-white transition hover:text-cyan-400"
         >
-          Prashant<span className="text-cyan-400">.</span>
+         <i> Prashant</i> <span className="text-cyan-400">.</span>
         </a>
 
         {/* Mobile Button */}

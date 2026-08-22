@@ -203,64 +203,12 @@ export default function Project() {
 
         {/* ============= CAROUSEL ================ */}
         <div className="relative">
-          {/* Navigation Buttons */}
-
-          {showControls && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className=" absolute -top-16 right-0 z-20 flex items-center gap-3 " >
-
-              {/* PREVIOUS */}
-              <button
-                onClick={handlePrev}
-                disabled={activeIndex === 0}
-                aria-label="Previous projects"
-                className=" flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-600 bg-slate-950 text-white transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12 " >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-
-              {/* NEXT */}
-              <button
-                onClick={handleNext}
-                disabled={activeIndex >= maxIndex}
-                aria-label="Next projects"
-                className=" flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-700 bg-slate-950 text-white transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12 " >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </motion.div>
-          )}
-
           {/* =============  VIEWPORT ================= */}
-          <div className="w-full overflow-hidden">
+          <div className="w-full overflow-hidden py-5">
             {/* =============== TRACK =============== */}
             <div
               ref={carouselRef}
-              className="flex gap-6"
+              className="flex gap-6 w-full"
               style={{
                 transform: `translateX(-${activeIndex * slideDistance}px)`,
                 transition: "transform 500ms cubic-bezier(0.4, 0, 0.2, 1)",
@@ -283,10 +231,10 @@ export default function Project() {
                     {/* CARD */}
 
                     <div
-                      className=" group flex h-[520px] flex-col overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-950 to-slate-900 shadow-xl transition-all duration-300  hover:border-amber-400/50 hover:shadow-2xl hover:shadow-cyan-500/20 " >
+                      className=" group flex h-[530px] flex-col overflow-hidden rounded-2xl border-2 object-cover shadow-[0_0_40px_rgba(6,182,212,0.5)] bg-gradient-to-br from-slate-950 to-slate-900 shadow-xl transition-all duration-300  hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20 " >
 
                       {/* =============== IMAGE ============== */}
-                      <div className="relative h-48 w-full flex-shrink-0 overflow-hidden bg-slate-800">
+                      <div className="relative h-50 w-full flex-shrink-0 overflow-hidden bg-slate-800">
                         <img
                           src={project.image}
                           alt={project.title}
@@ -360,11 +308,64 @@ export default function Project() {
             </div>
           </div>
 
+          {/* ============= NAVIGATION BUTTONS ============= */}
+          {showControls && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mt-8 flex items-center justify-center gap-4"
+            >
+              {/* PREVIOUS */}
+              <button
+                onClick={handlePrev}
+                disabled={activeIndex === 0}
+                aria-label="Previous projects"
+                className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-600 bg-slate-950 text-white transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12"
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* NEXT */}
+              <button
+                onClick={handleNext}
+                disabled={activeIndex >= maxIndex}
+                aria-label="Next projects"
+                className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-slate-700 bg-slate-950 text-white transition-all duration-300 hover:border-amber-400 hover:text-amber-400 disabled:cursor-not-allowed disabled:opacity-40 sm:h-12 sm:w-12"
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </motion.div>
+          )}
+
           {/* =============== COUNTER ============= */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mt-6 text-center text-sm text-slate-400"
+            className="mt-4 text-center text-sm text-slate-400"
           >
             Showing {Math.min(activeIndex + visibleCount, projects.length)} of{" "}
             {projects.length} projects
@@ -376,12 +377,14 @@ export default function Project() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-16 mx-10 grid gap-6 sm:grid-cols-2"
+          className="mt-16 mx-10 grid gap-6 sm:grid-cols-2 "
         >
 
           {/* RESPONSIVE DESIGN */}
+          
           <div
-            className=" rounded-xl border border-amber-700/50 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg " >
+            className="m-4 rounded-xl border-2 border-amber-700/50 bg-gradient-to-br from-slate-900  to-slate-950 hover:border-amber-400  p-6 shadow-2xl " >
+          
             <h3 className="text-lg font-bold text-white">Responsive Design</h3>
 
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
@@ -392,14 +395,15 @@ export default function Project() {
 
           {/* TECH STACK */}
           <div
-            className=" rounded-xl border border-amber-700/50 bg-gradient-to-br from-slate-900 to-slate-950 p-6 shadow-lg " >
+            className="m-4 rounded-xl border-2 border-amber-700/50 bg-gradient-to-br from-slate-900 to-slate-950 hover:border-amber-400  p-6 shadow-2xl " >
             <h3 className="text-lg font-bold text-white">Tech Stack Focus</h3>
 
             <p className="mt-3 text-sm leading-relaxed text-slate-400">
               Full-Stack development expertise with React, Node.js, MongoDB,
               Express, and modern JavaScript technologies.
             </p>
-          </div>
+           </div>
+        
         </motion.div>
       </div>
 

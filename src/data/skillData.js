@@ -17,10 +17,8 @@ import {
   SiRedux,
   SiTailwindcss,
   SiExpress,
-  SiSupabase,
   SiMysql,
   SiMongodb,
-  SiSequelize,
   SiMongoose,
   SiVercel,
   SiRender,
@@ -75,10 +73,7 @@ export const skillGroups = [
         name: "REST APIs",
         icon: TbApi,
       },
-      {
-        name: "Supabase",
-        icon: SiSupabase,
-      },
+      
     ],
   },
 
@@ -95,10 +90,6 @@ export const skillGroups = [
       {
         name: "MongoDB",
         icon: SiMongodb,
-      },
-      {
-        name: "Sequelize",
-        icon: SiSequelize,
       },
       {
         name: "Mongoose",
@@ -145,15 +136,15 @@ export const skillGroups = [
     description: "Engineering concepts I use while building systems.",
     skills: [
       {
-        name: "Real-Time Systems",
+        name: "E-commerce App",
         icon: TbArrowsExchange,
       },
       {
-        name: "Web Workers",
+        name: "Blogging App",
         icon: TbApi,
       },
       {
-        name: "Multiplayer Sync",
+        name: "Real Time Chat App",
         icon: TbArrowsExchange,
       },
       {
